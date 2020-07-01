@@ -98,4 +98,36 @@ describe("Given a mock db", () => {
     });
   });
 
+
+  describe("can insert data", () => {
+    it("can insert one item", async () => {
+      const data = await db.collection("computers", async (err, collection) => {
+        if (err) {
+          throw err;
+        }
+        return await collection.insertOne({ "name": "Backlook Slow", "type": "slappop", "brand": "Sattle", "year": 1976 });
+      });
+
+      expect(data).to.not.be.undefined;
+      expect(data).to.not.deep.equal({});
+      expect(data.name).to.equal("Backlook Slow");
+    });
+
+    it("can insert many items", async () => {
+      const data = await db.collection("computers", async (err, collection) => {
+        if (err) {
+          throw err;
+        }
+        return await collection.insert([
+          { "name": "Backlook Slow", "type": "slappop", "brand": "Sattle", "year": 1976 },
+          { "name": "Back Slow", "type": "pesttop", "brand": "Sattle", "year": 1980 }
+        ]);
+      });
+
+      expect(data).to.not.be.undefined;
+      expect(data).to.not.deep.equal([]);
+      expect(data.length).to.equal(2);
+    });
+
+  });
 });
