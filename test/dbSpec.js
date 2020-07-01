@@ -92,23 +92,9 @@ describe("Given a mock db", () => {
           { upsert: true });
       });
 
-
-      const col = await db.collection("computers", async (err, collection) => {
-        if (err) {
-          throw err;
-        }
-        return await collection
-        .find()
-        .toArray()
-        .catch((err) => {
-          throw err;
-        });
-      });
-
       expect(data).to.not.be.undefined;
       expect(data).to.not.deep.equal({});
       expect(data.name).to.equal("Backlook Slow");
-      console.debug(col);
     });
   });
 
