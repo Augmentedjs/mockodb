@@ -17,9 +17,7 @@ module.exports = {
     filename: "mockoDB.js",
     publicPath: "/dist/",
     library: "mockoDB",
-    globalObject: "this",
-    libraryTarget: "commonjs",
-    umdNamedDefine: true
+    libraryTarget: "commonjs"
   },
   module: {
     rules: [
