@@ -31,7 +31,7 @@ class Collection {
     if (what && change && change["$set"]) {
       const iFound = this._whereIndex(what);
 
-      if (iFound && iFound >= 0) {
+      if (iFound !== -1) {
         const model = this._data[iFound];
         // console.debug("found", iFound);
 
@@ -48,7 +48,7 @@ class Collection {
     if (what && change && change["$set"]) {
       const iFound = this._whereIndex(what);
 
-      if (iFound && Array.isArray(iFound)) {
+      if (Array.isArray(iFound)) {
         let i = 0, list = [];
         const l = iFound.length;
 
@@ -59,7 +59,7 @@ class Collection {
           list.push(this._data[iFound[i]]);
         }
         return Promise.resolve(list);
-      } else if (iFound && iFound >= 0) {
+      } else if (iFound !== -1) {
         const model = this._data[iFound];
         // console.debug("found", iFound);
         this._data[iFound] = await Object.assign(model, change["$set"]);
@@ -93,7 +93,7 @@ class Collection {
     if (what) {
       const iFound = this._whereIndex(what);
 
-      if (iFound && iFound >= 0) {
+      if (iFound !== -1) {
         // const model = this._data[iFound];
         // console.debug("found", iFound);
 
@@ -109,7 +109,7 @@ class Collection {
     if (what) {
       const model = await Object.create(what);
       const ii = await this._whereIndex(model);
-      if (ii && Array.isArray(ii)) {
+      if (Array.isArray(ii)) {
         let i = 0;
         const l = ii.length;
         for (i = 0; i < l; i++) {
