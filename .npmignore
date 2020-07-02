@@ -1,10 +1,7 @@
 # OS X
 .DS_Store
 src/*
-data
 test
-devserver.js
 webpackData.js
 webpack.config.js
-middleware.js
 .babelrc
