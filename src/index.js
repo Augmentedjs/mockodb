@@ -25,14 +25,14 @@ class MockoDB {
       if (this._name && name) {
         const db = this._databases[this._name];
         if (db) {
-          let collection = null;
-          if (db.collections[name]) {
-            collection = db.collections[name];
-          } else {
+          // let collection = null;
+          if (!db.collections[name]) {
+            // collection = db.collections[name];
+          // } else {
             db.collections[name] = [];
-            collection = db.collections[name];
+            // collection = db.collections[name];
           }
-          return callback(null, new Collection(collection));
+          return callback(null, new Collection(db.collections[name]));
         } else {
           return callback(new Error("Missing database"), null);
         }
