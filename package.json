@@ -1,6 +1,6 @@
 {
   "name": "@augmentedjs/mockodb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Mock MongoDB client for use with webpack dev server or other testing tools.",
   "main": "dist/mockoDB.js",
   "scripts": {

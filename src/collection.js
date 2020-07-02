@@ -20,9 +20,9 @@ class Collection {
     if (expression) {
       const found = this._where(expression);
       if (found) {
-        return new Result(found[0]);
+        return Promise.resolve(found[0]);
       }
-      return new Result({});
+      return Promise.resolve({});
     }
     throw new Error("No document");
   };

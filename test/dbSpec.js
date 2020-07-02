@@ -23,7 +23,7 @@ describe("Given a mock db", () => {
     expect(name).to.equal("bubba");
   });
 
-  xdescribe("can read existing data in collection", () => {
+  describe("can read existing data in collection", () => {
     it("can find all items in a collection", async () => {
       const data = await db.collection("computers", async (err, collection) => {
         if (err) {
@@ -111,7 +111,7 @@ describe("Given a mock db", () => {
     });
   });
 
-  xdescribe("can update data", () => {
+  describe("can update data", () => {
     it("can change a model in the collection", async () => {
       const data = await db.collection("computers", async (err, collection) => {
         if (err) {
@@ -178,7 +178,7 @@ describe("Given a mock db", () => {
     });
   });
 
-  xdescribe("can insert data", () => {
+  describe("can insert data", () => {
     it("can insert one item", async () => {
       const data = await db.collection("computers", async (err, collection) => {
         if (err) {
