@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "mockoDB.js",
     publicPath: "/dist/",
-    library: "mockoDB",
+    library: "MockoDB",
     libraryTarget: "commonjs"
   },
   module: {

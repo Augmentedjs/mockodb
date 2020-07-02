@@ -9,3 +9,15 @@ MockoDB is an API similar store to MongoDB's node client.  Its intention is to a
 * Not designed for concurrency
 * not for use in production
 * not scalable
+
+## Usage
+const { MockoDB } = require("@augmentedjs/mockodb");
+
+const db = new MockoDB({
+  "name": "myDB",
+  "collections": {
+    "characters": ...,
+    "games": ...,
+    "quests": ...
+  }
+});
