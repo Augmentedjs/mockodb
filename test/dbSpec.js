@@ -184,7 +184,8 @@ describe("Given a mock db", () => {
         if (err) {
           throw err;
         }
-        return await collection.insertOne({ "name": "Backlook Slow", "type": "slappop", "brand": "Sattle", "year": 1976 });
+        return await collection.insertOne(
+          { "name": "Backlook Slow", "type": "slappop", "brand": "Sattle", "year": 1976 });
       });
 
       const list = await db.collection("computers", async (err, collection) => {

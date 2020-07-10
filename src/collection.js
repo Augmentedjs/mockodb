@@ -72,7 +72,7 @@ class Collection {
 
   async insertOne(what) {
     if (what) {
-      const model = await Object.create(what);
+      const model = await Object.assign({}, what);
       await this._data.push(model);
       return Promise.resolve(model);
     }
@@ -81,7 +81,7 @@ class Collection {
 
   async insert(what) {
     if (what && Array.isArray(what)) {
-      this._data = await this._data.push(...what);
+      await this._data.push(...what);
       return Promise.resolve(what);
     } else if (what && typeof what === "object") {
       return await this.insertOne(what);
@@ -107,7 +107,7 @@ class Collection {
 
   async delete(what) {
     if (what) {
-      const model = await Object.create(what);
+      const model = await Object.assign({}, what);
       const ii = await this._whereIndex(model);
       if (Array.isArray(ii)) {
         let i = 0;
